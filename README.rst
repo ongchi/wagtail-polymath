@@ -31,7 +31,7 @@ Quickstart
 
 Install wagtailmath::
 
-    pip install wagtailmath
+    pip install wagtail-polymath
 
 Add it to your `INSTALLED_APPS`:
 
@@ -39,7 +39,7 @@ Add it to your `INSTALLED_APPS`:
 
     INSTALLED_APPS = (
         ...
-        'wagtailmath',
+        'wagtail_polymath',
         ...
     )
 
@@ -47,7 +47,7 @@ Use ``MathBlock`` in your ``StreamField`` content:
 
 .. code-block:: python
 
-    from wagtailmath.blocks import MathBlock
+    from wagtail_polymath.blocks import MathBlock
 
     class MyPage(Page):
         body = StreamField([

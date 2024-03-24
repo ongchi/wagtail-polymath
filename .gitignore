@@ -1,5 +1,6 @@
 .venv
 venv
+*.mo
 *.swp
 *.pyc
 *.pyo

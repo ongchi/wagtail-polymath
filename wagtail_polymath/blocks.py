@@ -13,10 +13,10 @@ class MathJaxWidget(HiddenInput):
     class Media:
         js = (
             f'https://cdnjs.cloudflare.com/ajax/libs/mathjax/{MATHJAX_VERSION}/MathJax.js?config=TeX-MML-AM_HTMLorMML',
-            'wagtailmath/js/wagtailmath.js'
+            'wagtail_polymath/js/streamfield.js'
         )
 
-    template_name = "wagtailmath/mathjaxwidget.html"
+    template_name = "wagtail_polymath/streamfield.html"
 
     def get_context(self, name, value, attrs):
         context = {'widget': {
@@ -47,7 +47,7 @@ class MathBlock(FieldBlock):
 
 
 #class MathJaxWidgetAdapter(WidgetAdapter):
-#    js_constructor = 'wagtailmath.blocks.MathJaxWidget'
+#    js_constructor = 'wagtail_polymath.blocks.MathJaxWidget'
 #
 #    def js_args(self, widget):
 #        return [
@@ -56,5 +56,3 @@ class MathBlock(FieldBlock):
 
 
 #register(MathJaxWidgetAdapter(), MathJaxWidget)
-
-

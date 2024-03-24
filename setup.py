@@ -11,7 +11,7 @@ except ImportError:
 
 
 def get_version(*file_paths):
-    """Retrieves the version from wagtailmath/__init__.py"""
+    """Retrieves the version from wagtail_polymath/__init__.py"""
     filename = os.path.join(os.path.dirname(__file__), *file_paths)
     version_file = open(filename).read()
     version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
@@ -21,7 +21,7 @@ def get_version(*file_paths):
     raise RuntimeError('Unable to find version string.')
 
 
-version = get_version("wagtailmath", "__init__.py")
+version = get_version("wagtail_polymath", "__init__.py")
 
 
 if sys.argv[-1] == 'publish':
@@ -45,7 +45,7 @@ readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
-    name='wagtailmath',
+    name='wagtail_polymath',
     version=version,
     description="""Wagtail StreamField block for rendering mathematical equations""",
     long_description=readme + '\n\n' + history,
@@ -53,7 +53,7 @@ setup(
     author_email='jamessramm@gmail.com',
     url='https://github.com/JamesRamm/wagtailmath',
     packages=[
-        'wagtailmath',
+        'wagtail_polymath',
     ],
     include_package_data=True,
     install_requires=[
