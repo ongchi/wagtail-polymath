@@ -1,19 +1,15 @@
 [build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
 
 [project]
 name = "wagtail-polymath"
-description = "Math typesetting for Wagtail CMS powered by KaTeX"
 authors = [
-    {name = "ongchi", email = "ongchi@users.noreply.github.com"},
+    {name = "Wagtail Nest contributors", email = "hello@wagtail.org"},
 ]
-dependencies = [
-    "wagtail>=3",
-]
-requires-python = ">=3.6"
-license = {text = "MIT"}
+description = "Math typesetting for Wagtail CMS"
 readme = "README.md"
+license = {file = "LICENSE"}
 classifiers = [
     "Environment :: Web Environment",
     "Framework :: Django",
@@ -32,17 +28,36 @@ classifiers = [
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
 ]
+requires-python = ">=3.6"
 dynamic = ["version"]
+dependencies = [
+    "wagtail>=3",
+]
+testing = [
+    "dj-database-url==2.1.0",
+    "pre-commit==3.4.0"
+]
+ci = [
+    "tox==4.11.3",
+    "tox-gh-actions==3.1.3"
+]
 
 [project.urls]
-Homepage = "https://github.com/wagtail-nest/wagtail-polymath"
+Home = "https://github.com/wagtail-nest/wagtail-polymath"
 "Bug Tracker" = "https://github.com/wagtail-nest/wagtail-polymath/issues"
 
-[tool.setuptools]
-packages = ["wagtail_polymath"]
+[tool.flit.module]
+name = "wagtail_polymath"
 
-[tool.setuptools.dynamic]
-version = {attr = "wagtail_polymath.__version__"}
-
-[tool.black]
-skip_string_normalization = true
+[tool.flit.sdist]
+exclude = [
+    "wagtail_polymath/static_src",
+    "wagtail_polymath/test",
+    "wagtail_polymath/static/wagtail_polymath/js/.gitignore",
+    "testmanage.py",
+    ".*",
+    "*.js",
+    "*.json",
+    "*.ini",
+    "*.yml"
+]
